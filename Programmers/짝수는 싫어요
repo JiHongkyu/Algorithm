@@ -1,0 +1,12 @@
+function solution(n) {
+    let num = [];
+    
+    for(let i = 1; i <= n; i++) {
+        if(i%2 === 1) {
+            num.push(i);
+        }
+    }
+    return num;
+}
+
+// 1. 정수를 입력받고 정수만큼 for문 돌리면서 홀수면 배열에 추가
