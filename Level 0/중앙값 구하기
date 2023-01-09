@@ -1,0 +1,14 @@
+function solution(array) {
+    let num = 0;
+    let results = 0;
+    for (let i = 0; i < array.length; i++) {
+        for (let j = i; j < array.length; j++) {
+            if (array[i] > array[j]) {
+                num = array[i];
+                array[i] = array[j]
+                array[j] = num;
+            }
+        }
+    }
+    results = Math.floor(array.length/2);
+    return array[results];

@@ -1,0 +1,11 @@
+function solution(n, k) {
+    let num1 = 12000 * n;
+    let num2 = 2000 * k;
+    let num3 = Math.floor(n/10) * 2000;
+
+    
+    return (num1 + num2) - num3;
+}
+
+// 1. 양꼬치와 음료수 가격변수 생성
+// 2. 양꼬치 10으로 나누고 몫만큼 2000 곱해주고 총가격에서 빼주기

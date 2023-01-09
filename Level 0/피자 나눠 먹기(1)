@@ -1,0 +1,5 @@
+function solution(n) {
+    return Math.ceil(n / 7);
+}
+
+// 1. 사람수를 7로 나누고 나머지는 올림.
