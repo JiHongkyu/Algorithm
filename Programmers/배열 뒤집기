@@ -1,7 +1,0 @@
-function solution(num_list) {
-    let num = [];
-    for(let i = num_list.length-1; 0 <= i ; i--) {
-        num.push(num_list[i]);
-    }
-    return num;
-}
