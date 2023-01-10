@@ -1,0 +1,21 @@
+// 방법 1
+function solution(s1, s2) {
+    let cnt = 0;
+    
+    for(let i = 0; i < s1.length; i++) {
+        for(let j = 0; j < s2.length; j++) {
+            if(s1[i] === s2[j]) {
+                cnt += 1;
+            }
+        }
+    }
+    
+    return cnt;
+}
+
+// 방법 2
+function solution(s1, s2) {
+    return s1.filter( (value) => s2.includes(value)).length;
+}
+
+//1. filter함수와 includes함수를 사용하여 s1의 value가 s2에 포함되어 있으면 걸러서 넣기
