@@ -1,0 +1,5 @@
+function solution(message) {
+    return message.length*2;
+}
+
+//문자열의 길이* 2
