@@ -1,0 +1,25 @@
+// 방법 1
+function solution(my_string, letter) {
+    var answer = '';
+    
+    for(let i = 0; i < my_string.length; i++) {
+        if(letter === my_string[i]) {
+            continue;
+        } else {
+            answer += my_string[i];
+        }
+    }
+    
+    return answer;
+}
+
+// 1.문자열을 for문으로 돌리기
+// 2.if문으로 letter과 같은지 비교
+// 3.같으면 continue 다르면 새 문자열에 추가
+
+// 방법 2
+function solution(my_string, letter) {
+    return my_string.replaceAll(letter, '');
+}
+
+//replaceAll 문자열 모두 치환
