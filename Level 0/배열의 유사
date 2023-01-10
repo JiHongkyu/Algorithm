@@ -18,4 +18,6 @@ function solution(s1, s2) {
     return s1.filter( (value) => s2.includes(value)).length;
 }
 
-//1. filter함수와 includes함수를 사용하여 s1의 value가 s2에 포함되어 있으면 걸러서 넣기
+// 1. filter함수와 includes함수를 사용하여 s1의 value값이 s2배열에 포함되어있는지 확인
+// 2. 포함되어있으면 s1배열에 재배열
+// 3. 재배열된 s1배열의 길이를 리턴
