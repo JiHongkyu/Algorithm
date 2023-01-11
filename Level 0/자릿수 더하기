@@ -1,0 +1,30 @@
+// 방법 1
+function solution(n) {
+    var answer = 1000000;
+    var cnt = 0;
+    
+    for(let i = answer; i >= 1; i = i/10 ) {
+        if(n / i === 0) {
+            continue;
+        } else {
+            cnt += Math.floor(n / i);
+            n = n - Math.floor(n / i)*i;
+        }
+    }
+    
+    return cnt;
+}
+
+// 방법 2
+function solution(n) {
+    var answer = 0;
+    
+    while(n > 0) {
+        answer += n % 10;
+        n = Math.floor(n / 10);
+    }
+    return answer;
+}
+
+// 1. answer변수에 n을 10으로 나누어 나오는 나머지를 저장
+// 2. n은 n을 10으로 나누어 나머지를 버리고 다시 저장
