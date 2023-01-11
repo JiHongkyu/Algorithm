@@ -1,0 +1,30 @@
+//방법 1
+function solution(my_string) {
+    var answer = 'aeiou';
+    var result = '';
+    var cnt = 0;
+    
+    for(let i = 0; i < my_string.length; i++) {
+        for(let j = 0; j < answer.length; j++) {
+            if(my_string[i] === answer[j]) {
+                cnt = 1;
+            }
+        }
+        
+        if(cnt === 0) {
+            result += my_string[i];
+        } else {
+            cnt = 0
+        }
+    }
+    
+    return result;
+}
+
+function solution(my_string) {
+    return my_string.split('').filter( (v) => !['a','e','i','o','u'].includes(v)).join('');
+}
+
+// 1. split사용하여 문자열을 배열로 변환
+// 2. filter함수와 !includes함수를 사용하여 a,e,i,o,u에 해당하지 않는 것만 재배열
+// 3. join함수를 사용하여 배열을 문자열로 변환
