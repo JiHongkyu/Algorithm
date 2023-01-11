@@ -1,0 +1,11 @@
+function solution(my_string) {
+    var answer = 0;
+    
+    for(let i = 0; i < my_string.length; i++) {
+        if(!!Number(my_string[i])) answer += Number(my_string[i]);
+    }
+    return answer;
+}
+
+// 1. 문자를 Number으로 변환
+// 2. !!연산자로 true면 변수에 추가, false면 건너뛰기
