@@ -1,0 +1,19 @@
+// 방법 1
+function solution(n) {
+    
+    for(let i = 1; i <= n; i++) {
+        if(i*i === n) {
+            return 1;
+        }
+    }
+    return 2;
+}
+
+// 방법 2
+function solution(n) {
+    return Number.isInteger( Math.sqrt(n) ) ? 1 : 2;
+}
+
+// 1. Math.sqrt함수로 n의 제곱근 구하기
+// 2. Number.isInteger함수로 정수인지 확인하기
+// 3. 삼항연산자로 true면 1, false면 2 리턴
