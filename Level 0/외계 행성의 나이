@@ -1,0 +1,17 @@
+//방법 1
+function solution(age) {
+    var alphabet = 'abcdefghij';
+    var result = '';
+    age = age.toString();
+    
+    for(let i = 0; i < age.length; i++) {
+        result += alphabet[age[i]];
+    }
+    
+    return result;
+}
+
+//방법 2
+function solution(age) {
+    return age.toString().split('').map( (v) => 'abcdefghij'[v]).join('');
+}
