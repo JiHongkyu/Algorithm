@@ -1,0 +1,19 @@
+// 방법 1
+function solution(numbers) {
+    var max = -100000000;
+    
+    for(let i = 0; i < numbers.length; i++) {
+        for(let j = i+1; j < numbers.length; j++) {
+            if(max < (numbers[i]*numbers[j])) {
+                max = numbers[i]*numbers[j];
+            }
+        }
+    }
+    return max;
+}
+//방법 2
+function solution(numbers) {
+    numbers.sort( (a, b) => a - b);
+    
+    return Math.max(numbers[0]*numbers[1], numbers[numbers.length-1]*numbers[numbers.length-2]);
+}
