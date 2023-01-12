@@ -1,0 +1,8 @@
+function solution(emergency) {
+    var answer = [...emergency].sort( (a, b) => b - a);
+    
+    return emergency.map( (v) => answer.indexOf(v)+1);
+}
+
+// 1. 배열 복사 후 내림차순 정렬
+// 2. indexOf함수를 사용하여 복사된 배열에 포함되어있는지 확인 후 인덱스+1 반환
