@@ -1,0 +1,13 @@
+function solution(numbers, direction) {
+    var answer = [];
+    
+    if(direction === 'right') {
+        numbers.unshift(numbers.pop());
+    } else {
+        numbers.push(numbers.shift());
+    }
+    return numbers;
+}
+
+// 1. right의 경우: pop함수로 마지막요소 제거 후 unshift함수로 첫번째요소에 저장
+// 2. left 의 경우: shift함수로 첫번째요소 제거 후 push함수로 마지막요소에 저장
