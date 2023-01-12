@@ -1,0 +1,36 @@
+// 방법 1
+function solution(my_string) {
+    var answer = [];
+    var num = 0;
+    
+    for(let i = 0; i < my_string.length; i++) {
+        if(!isNaN(Number(my_string[i]))) {
+            answer.push(Number(my_string[i]));
+        }
+    }
+    
+    for(let i = 0; i < answer.length; i++) {
+        for(let j = i; j < answer.length; j++) {
+            if(answer[i] > answer[j]) {
+                num = answer[i];
+                answer[i] = answer[j];
+                answer[j] = num;
+            }
+        }
+    }
+    
+    return answer;
+}
+
+// 1. Number로 형변환 시 NaN이 아니 배열추가
+// 2. 오름차순 정렬
+
+//방법 2
+function solution(my_string) {
+    return my_string.split('').filter((v)=> !isNaN(+v)).map((v)=>+v).sort((a,b)=>a-b)
+}
+
+// 1. split함수로 문자열 -> 배열 변환
+// 2. filter함수로 숫자만 골라내기
+// 3. map함수로 문자값 -> 숫자 변환
+// 4. sort함수로 오름차순 정의
