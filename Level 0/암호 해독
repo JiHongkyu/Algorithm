@@ -1,0 +1,18 @@
+// 방법 1
+
+function solution(cipher, code) {
+    var answer = '';
+    
+    for(let i = code; i <= cipher.length; i++) {
+        if(i % code === 0) {
+            answer += cipher[i-1];
+        }
+    }
+    
+    return answer;
+}
+
+// 방법 2
+function solution(cipher, code) {
+    return cipher.split('').filter( (value, index) => (index+1) % code === 0).join('');
+}
