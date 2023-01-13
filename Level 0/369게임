@@ -1,0 +1,12 @@
+function solution(order) {
+    var answer = order.toString();
+    var cnt = 0;
+    
+    for(let i of answer) {
+        if(+i !== 0 && i % 3 === 0) {
+            cnt += 1;
+        }
+    }
+    
+    return cnt;
+}
