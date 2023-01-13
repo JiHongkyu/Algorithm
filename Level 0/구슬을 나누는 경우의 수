@@ -1,0 +1,19 @@
+function solution(balls, share) {
+    var ballsFac = BigInt(1);
+    var shareFac = BigInt(1);
+    var bsFac = BigInt(1);
+    
+    for(let i = 1; i <= balls; i++) {
+        ballsFac *= BigInt(i);
+    }
+    
+    for(let j = 1; j <= share; j++) {
+        shareFac *= BigInt(j);
+    }
+    
+    for(let k = 1; k <= balls-share; k++) {
+        bsFac *= BigInt(k);
+    }
+    
+    return ballsFac / (bsFac * shareFac);
+}
