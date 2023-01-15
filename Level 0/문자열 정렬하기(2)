@@ -1,0 +1,7 @@
+function solution(my_string) {
+    return my_string.toLowerCase().split('').sort().join('');
+}
+
+// 1. toLowerCase함수 사용하여 소문자로 변경
+// 2. split함수로 문자열을 배열로 만들어주기
+// 3. sort함수로 정렬 후 join함수로 배열을 문자열로 만들어주기
