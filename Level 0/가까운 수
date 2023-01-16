@@ -1,0 +1,14 @@
+function solution(array, n) {
+    var answer = 101;
+    var result = 0;
+    
+    array = array.sort( (a, b) => a - b);
+    
+    for(let i = 0; i < array.length; i++) {
+        if(answer > Math.abs(array[i] - n)) {
+            answer = Math.abs(array[i] - n);
+            result = array[i];
+        }
+    }
+    return result;
+}
