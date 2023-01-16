@@ -1,0 +1,15 @@
+function solution(n) {
+    var answer = 1;
+    var result = 0;
+    
+    for(let i = 1; i <= 10; i++) {
+        answer *= i;
+        
+        if(answer > n) {
+            break;
+        }
+        result = i;
+        
+    }
+    return result;
+}
