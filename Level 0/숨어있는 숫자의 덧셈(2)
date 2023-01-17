@@ -1,0 +1,14 @@
+function solution(my_string) {
+    var answer = '';
+    var result = 0;
+    
+    for(let i = 0; i < my_string.length+1; i++) {
+        if(!isNaN(+my_string[i])) {
+            answer += my_string[i]
+        } else {
+            result += +answer;
+            answer = '';
+        }
+    }
+    return result;
+}
