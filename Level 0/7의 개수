@@ -1,0 +1,12 @@
+function solution(array) {
+    var answer = 0;
+    array = array.join('').toString();
+    
+    for(let i = 0; i < array.length; i++) {
+        if(array[i] === '7') {
+            answer += 1;
+        }
+    }
+    
+    return answer;
+}
