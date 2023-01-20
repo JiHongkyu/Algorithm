@@ -1,3 +1,4 @@
+// 방법 1
 function solution(my_str, n) {
     var answer = [];
     var str = '';
@@ -15,6 +16,15 @@ function solution(my_str, n) {
         answer.push(str);
         str = '';
     }
+    
+    return answer;
+}
+
+// 방법 2
+function solution(my_str, n) {
+    var answer = [];
+    
+    for(let i = 0; i < my_str.length; i+=n) answer.push(my_str.slice(i, i+n));
     
     return answer;
 }
