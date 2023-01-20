@@ -1,0 +1,19 @@
+// 방법 1
+function solution(my_string) {
+    var answer = my_string.split(' ');
+    var result = parseInt(answer[0]);
+    
+    for(let i = 0; i < answer.length; i++) {
+        if(answer[i] === '+') {
+            result += parseInt(answer[i+1]);
+        } else if(answer[i] === '-') {
+            result -= parseInt(answer[i+1])
+        }
+    }
+    return result;
+}
+
+// 방법 2
+function solution(my_string) {
+    return eval(my_string);
+}
