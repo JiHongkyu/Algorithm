@@ -1,0 +1,29 @@
+// 방법 1
+function solution(dots) {
+    var answer = 0;
+    var max_x = -256;
+    var min_x = 256;
+    var max_y = -256;
+    var min_y = 256;
+    
+    for(let i in dots) {
+        if(max_x < dots[i][0]) {
+            max_x = dots[i][0];
+        } else if(min_x > dots[i][0]) {
+            min_x = dots[i][0];
+        }
+        if(max_y < dots[i][1]) {
+            max_y = dots[i][1];
+        } else if(min_y > dots[i][1]) {
+            min_y = dots[i][1];
+        }
+    }
+    return (max_x - min_x) * (max_y - min_y)
+}
+
+// 방법 2
+function solution(dots) {
+    var width = Math.max(...dots.map( (v) => v[0])) - Math.min(...dots.map( (v) => v[0]));
+    var height = Math.max(...dots.map( (v) => v[1])) - Math.min(...dots.map( (v) => v[1]));
+    return width * height;
+}
