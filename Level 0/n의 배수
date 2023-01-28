@@ -15,5 +15,3 @@ function solution(n, numlist) {
 function solution(n, numlist) {
     return numlist.filter( (value) => value % n === 0);
 }
-
-// 1. filter함수를 사용하여 n으로 나누었을 때 0이 되는 값만 골라내서 저장
