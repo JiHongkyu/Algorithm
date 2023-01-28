@@ -5,6 +5,7 @@ function solution(score) {
     return avg.map( (v) => sorted.indexOf(v) + 1);
 }
 
+
 // 1. avg: 평균 구하기
 // 2. sorted: 평균 내림차순 정렬하기
 // 3. avg의 값과 sorted의 값을 비교하고 같으면 sorted의 인덱스 가져오기
