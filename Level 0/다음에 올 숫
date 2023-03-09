@@ -1,0 +1,19 @@
+function solution(common) {
+    let answer = 0;
+    let result = common[common.length-1];
+    
+    //등차수열
+    if(common[1] - common[0] === common[2] - common[1]) {
+        answer = common[1] - common[0];
+        result += answer;
+    //등비수열
+    } else {
+        answer = common[1] / common[0];
+        result *= answer;
+    }
+    
+    return result;
+}
+
+// 1. common[1] - common[0] === common[2] - common[1] true면 등차수열 false면 등비수열
+// 2. 등차수열이면 마지막값에 공차 더해주기, 등비수열이면 마지막값에 공비 더해주기
