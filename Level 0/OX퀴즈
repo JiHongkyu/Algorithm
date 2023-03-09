@@ -1,0 +1,20 @@
+function solution(quiz) {
+    var resultArr = [];
+    
+    quiz.forEach((item) => {
+        const [first, sign, second, , result] = item.split(" ");
+        let sum = 0;
+        if(sign === '+') {
+            sum = String(Number(first) + Number(second));
+        } else {
+            sum = String(Number(first) - Number(second));
+        }
+        sum === result ? resultArr.push("O") : resultArr.push("X");
+    })
+    
+    return resultArr;
+}
+
+//1. 수식을 배열로 쪼개기
+//2. 첫번째값, 두번째값, 결과값 변수에 저장
+//2. 결과값과 수식의 결과가 같으면 O, 다르면 X
