@@ -1,0 +1,15 @@
+function solution(num, total) {
+    let answer = [];
+    let value = Math.ceil((total / num) - Math.floor(num / 2));
+    let result = value;
+    
+    while(result <= total) {
+        answer.push(value);
+        value += 1;
+        result += value;
+    }
+    return answer;
+}
+
+// 1. 초기값을 구한다. Math.ceil((total/num) - Math.floor(num/2))
+// 2. 초기값부터 1씩 증가하면서 수를 더한 값이 total과 같아지면 stop
