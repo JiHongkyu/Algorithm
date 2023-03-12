@@ -5,4 +5,4 @@ function solution(i, j, k) {
         answer += i;
     }
     return answer.split(k).length-1;
-}
+} 
