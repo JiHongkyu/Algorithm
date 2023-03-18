@@ -1,26 +1,25 @@
 function solution(lines) {
     var answer = 0;
     var result = 0;
-    var arrLine = new Array(200);
-    arrLine.fill(0);
+    var arrLines = new Array(200);
+    arrLines.fill(0);
     
     for(let i = 0; i < lines.length; i++) {
         let left = lines[i][0];
         let right = lines[i][1];
         
         for(let j = left; j < right; j++) {
-            arrLine[j + 100] += 1;
+            arrLines[j + 100] += 1;
         }
     }
     
-    arrLine.map(item => {
+    arrLines.map(item => {
         if(item > 1) {
             result += 1;
         }
     })
-    
     return result;
 }
 
-// 1. 배열을 만들고 지나갈 때마다 +1
-// 2. 2이상의 값을 가지면 카운트
+// 1. 길이 200의 배열을 만들고 배열을 지나갈 때마다 +1 해주기
+// 2. 배열의 값이 2이상이면 카운트 해주기
