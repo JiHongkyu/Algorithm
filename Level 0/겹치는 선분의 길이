@@ -1,0 +1,26 @@
+function solution(lines) {
+    var answer = 0;
+    var result = 0;
+    var arrLine = new Array(200);
+    arrLine.fill(0);
+    
+    for(let i = 0; i < lines.length; i++) {
+        let left = lines[i][0];
+        let right = lines[i][1];
+        
+        for(let j = left; j < right; j++) {
+            arrLine[j + 100] += 1;
+        }
+    }
+    
+    arrLine.map(item => {
+        if(item > 1) {
+            result += 1;
+        }
+    })
+    
+    return result;
+}
+
+// 1. 배열을 만들고 지나갈 때마다 +1
+// 2. 2이상의 값을 가지면 카운트
