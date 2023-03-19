@@ -1,5 +1,4 @@
 function solution(lines) {
-    var answer = 0;
     var result = 0;
     var arrLines = new Array(200);
     arrLines.fill(0);
