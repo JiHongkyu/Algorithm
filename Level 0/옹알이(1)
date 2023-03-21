@@ -1,0 +1,25 @@
+function solution(babbling) {
+    let answer = 0;
+    let talk = ["aya", "ye", "woo", "ma"];
+    
+    for(let i in babbling) {
+        let init = babbling[i];
+        
+        for(let j in talk) {
+            if(init.includes(talk[j])) {
+                // 공백을 치환 시 단어가 재조합되어 말할 수 있는 단어로 바뀔 수 있음
+                init = init.replace(talk[j], "X");
+            }
+        }
+        
+        init = init.replace(/X/gi, "");
+        if(init.length === 0) {
+            answer += 1;
+        }
+    }
+    
+    return answer;
+}
+
+// 1. replace함수를 사용하여 말할 수 있는 단어를 X로 치환하기
+// 2. X로 치환된 값을 다시 공백으로 치환한 후 공백이면 answer + 1 해주기
