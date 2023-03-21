@@ -1,0 +1,21 @@
+function solution(dots) {
+    let arrIncline = []
+    
+    for(let i = 0; i < dots.length; i++) {
+        for(let j = i+1; j < dots.length; j++) {
+            const incline = (dots[i][1]-dots[j][1]) / (dots[i][0]-dots[j][0]);
+            
+            arrIncline.push(incline);
+        }
+    }
+    
+    if(arrIncline[0] === arrIncline[5]) return 1;
+    if(arrIncline[1] === arrIncline[4]) return 1;
+    if(arrIncline[2] === arrIncline[3]) return 1;
+    
+    return 0
+}
+
+// 1. 기울기 구하기: y좌표의 차이 / x좌표의 차이
+// 2. 기울기를 배열에 넣기
+// 3. [0, 5] [1, 4] [2, 3] 비교 후 평행하면 return 1 평행하는 것이 없으면 return 0
