@@ -1,0 +1,17 @@
+function solution(t, p) {
+    var answer = 0;
+    
+    for(let i = 0; i < t.length; i++) {
+        if(t[i+p.length-1]) {
+            let arr = t;
+            arr = arr.slice(i, i+p.length);
+            console.log(arr);
+            if(parseInt(arr) <= parseInt(p)) answer += 1;
+        }
+    }
+    
+    return answer;
+}
+
+// 1. i씩 증가하면서 i번째부터 i+p의 길이만큼의 값 구하기
+// 2. 그 값이 p의 값보다 작으면 answer + 1 해주기
