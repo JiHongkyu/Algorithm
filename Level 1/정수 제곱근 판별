@@ -1,0 +1,6 @@
+function solution(n) {
+    return Number.isInteger(Math.sqrt(n)) ? Math.pow(Math.sqrt(n)+1, 2) : -1;
+}
+
+// 1. sqrt함수를 사용하여 n의 제곱근 구하기
+// 2. 제곱근이 정수라면 제곱근+1의 제곱, 실수라면 -1 리턴
