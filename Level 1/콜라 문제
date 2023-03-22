@@ -1,0 +1,13 @@
+function solution(a, b, n) {
+    var now = 0;
+    var total = 0;
+    var input = n;
+    
+    while(input >= a) {
+        now = parseInt(input/a) * b;
+        total += now;
+        input = now + input%a;
+    }
+    
+    return total;
+}
