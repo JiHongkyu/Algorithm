@@ -1,0 +1,16 @@
+function solution(numbers) {
+    var answer = [];
+    
+    for(let i = 0; i < numbers.length; i++) {
+        for(let j = i+1; j < numbers.length; j++) {
+            const sum = numbers[i] + numbers[j];
+            if(!answer.includes(sum)) {
+                answer.push(sum);
+            }
+        }
+    }
+    answer = answer.sort((a, b) => a - b)
+    return answer;
+}
+
+// 1. i와 j를 더한 후 answer에 포함되어 있지 않으면 push
