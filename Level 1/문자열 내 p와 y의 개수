@@ -1,0 +1,18 @@
+function solution(s){
+    var answer = true;
+    var p = 0;
+    var y = 0;
+    s = s.toLowerCase();
+    
+    for(let i of s) {
+        if(i === 'p') p += 1;
+        if(i === 'y') y += 1;
+    }
+    
+    if(p !== y) answer = false;
+
+    return answer;
+}
+
+// 1. toLowerCase함수를 사용하여 s를 모두 소문자로 만들기
+// 2. p의 개수와 y의 개수를 변수에 저장하고 값이 같으면 true, 다르면 false 리턴
