@@ -1,0 +1,9 @@
+function solution(price, money, count) {
+    var sum = 0;
+    
+    for(let i = price; i <= price*count; i+=price) {
+        sum += i;
+    }
+    
+    return sum <= money ? 0 : sum-money;
+}
