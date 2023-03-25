@@ -1,0 +1,17 @@
+function solution(s) {
+    let answer = '';
+    
+    for(let i = 0; i < s.length; i++) {
+        if(isNaN(Number(s[i]))) {
+            return false;
+        } else {
+            answer += s[i];
+        }
+    }
+    
+    return answer.length === 4 || answer.length === 6 ? true : false;
+}
+
+// 1. s의 길이만큼 반복문을 돌면서 문자를 숫자로 바꿨을 때 NaN인지 검사
+// 2. NaN이면 false 리턴, NaN이 아니면 answer에 문자 추가
+// 3. answer의 길이가 4 또는 6 이면 true 리턴 아니면 false 리턴
