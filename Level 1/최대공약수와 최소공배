@@ -1,0 +1,20 @@
+function solution(n, m) {
+    let answer = [];
+    let gongyagsu = 0;
+    let gongbaesu = 0;
+    
+    // 최대공약수
+    for(let i = 1; i <= m; i++) {
+        if(n%i === 0 && m%i === 0) {
+            gongyagsu = i;
+        }
+    }
+    
+    // 최소공배수
+    gongbaesu = n * m / gongyagsu;
+    
+    answer.push(gongyagsu);
+    answer.push(gongbaesu);
+    
+    return answer;
+}
