@@ -13,8 +13,7 @@ function solution(n, m) {
     // 최소공배수
     gongbaesu = n * m / gongyagsu;
     
-    answer.push(gongyagsu);
-    answer.push(gongbaesu);
+    answer.push(gongyagsu, gongbaesu);
     
     return answer;
 }
