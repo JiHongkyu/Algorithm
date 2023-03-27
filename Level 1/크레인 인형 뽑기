@@ -1,0 +1,27 @@
+function solution(board, moves) {
+    let bucket = [];
+    let result = 0;
+    
+    for(let i = 0; i < moves.length; i++) {
+        let pick = moves[i]-1;
+        
+        for(let j = 0; j < board.length; j++) {
+            if(board[j][pick] === 0) {
+                continue;
+            } else {
+                if(bucket[bucket.length-1] === board[j][pick]) {
+                    bucket.pop();
+                    result += 2;
+                    board[j][pick] = 0;
+                    break;
+                } else {
+                    bucket.push(board[j][pick]);
+                    board[j][pick] = 0;
+                    break;
+                }
+            }
+        }
+    }
+    
+    return result;
+}
