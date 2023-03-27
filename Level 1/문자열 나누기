@@ -1,0 +1,23 @@
+function solution(s) {
+    let first = s[0];
+    let same = 0;
+    let diffrent = 0;
+    let result = 0;
+    
+    for(let i = 0; i < s.length; i++) {
+        if(first === s[i]) {
+            same += 1;
+        } else {
+            diffrent += 1;
+        }
+        
+        if(same === diffrent) {
+            result += 1;
+            same = 0;
+            diffrent = 0;
+            first = s[i+1];
+        }
+    }
+    if(same) result += 1;
+    return result;
+}
