@@ -1,0 +1,16 @@
+function solution(d, budget) {
+    let sum = 0;
+    let result = 0;
+    let arr = [...d].sort((a, b) => a - b);
+    
+    for(let i = 0; i < arr.length; i++) {
+        if((budget-sum) >= arr[i]) {
+            sum += arr[i];
+            ++result;
+        } else {
+            break;
+        }
+    }
+    
+    return result;
+}
