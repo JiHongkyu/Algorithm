@@ -1,0 +1,34 @@
+function solution(s, n) {
+    let answer = '';
+    let ascii_a = 'a'.charCodeAt(0);
+    let ascii_A = 'A'.charCodeAt(0);
+    let ascii_z = 'z'.charCodeAt(0);
+    let ascii_Z = 'Z'.charCodeAt(0);
+    
+    for(let i = 0; i < s.length; i++) {
+        if(s[i] !== ' ') {
+            let ascii = s.charCodeAt(i);
+            if(ascii >= ascii_a && ascii <= ascii_z) {
+                let num = ascii + n;
+                if(num > ascii_z) {
+                    let subtract = 26 - (num - ascii_z);
+                    answer += String.fromCharCode(ascii_z - subtract);
+                } else {
+                    answer += String.fromCharCode(ascii + n);
+                }
+            } else if(ascii >= ascii_A && ascii <= ascii_Z) {
+                let num = ascii + n;
+                if(num > ascii_Z) {
+                    let subtract = 26 - (num - ascii_Z);
+                    answer += String.fromCharCode(ascii_Z - subtract);
+                } else {
+                    answer += String.fromCharCode(ascii + n);
+                }
+            }
+        } else {
+            answer += s[i];
+        }
+    }
+    
+    return answer;
+}
