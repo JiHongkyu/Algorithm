@@ -1,24 +1,11 @@
 function solution(sizes) {
-    let answer = 0;
-    let w_max = 0;
-    let h_max = 0;
+    let arr = sizes.map(([w, h]) => w < h ? [h, w] : [w, h]);
+    let maxSizes = [0, 0];
     
-    for(let i = 0; i < sizes.length; i++) {
-        if(sizes[i][0] < sizes[i][1]) {
-            [ sizes[i][0], sizes[i][1] ] = [ sizes[i][1], sizes[i][0] ];
-        }
-    }
+    arr.forEach(([w, h]) => {
+        if(w > maxSizes[0]) maxSizes[0] = w;
+        if(h > maxSizes[1]) maxSizes[1] = h;
+    })
     
-    for(let i = 0; i < sizes.length; i++) {
-        if(w_max < sizes[i][0]) {
-            w_max = sizes[i][0];
-        }
-        if(h_max < sizes[i][1]) {
-            h_max = sizes[i][1];
-        }
-    }
-    
-    answer = w_max * h_max;
-    
-    return answer;
+    return maxSizes[0] * maxSizes[1];
 }
