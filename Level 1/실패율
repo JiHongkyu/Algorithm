@@ -1,0 +1,24 @@
+function solution(N, stages) {
+    let answer = [];
+    //총 사용자의 수
+    let people = stages.length;
+    
+    for(let i = 1; i <= N+1; i++) {
+        //같은 스테이지에서 실패한 사람의 수
+        let fail = stages.filter(v => v === i).length;
+        //스테이지의 번호와 실패율을 같이 저장해서 정렬해도 같이 바뀌게 함.
+        answer.push([i, fail/people]);
+        
+        //총 사용자의 수에서 실패한 사람의 수를 빼줌.
+        people -= fail;
+    }
+    
+    //마지막값은 모든 스테이즈를 성공한 사람이라 없애줌.
+    answer.pop();
+    
+    //실패율이 높은 순으로 정렬
+    answer.sort((a, b) => b[1] - a[1]);
+    
+    //실패율이 높은 스테이지 리턴
+    return answer.map(v => v[0]);
+}
