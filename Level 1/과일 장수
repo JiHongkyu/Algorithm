@@ -1,0 +1,15 @@
+function solution(k, m, score) {
+    let answer = 0;
+    let arr = [...score];
+    arr.sort((a, b) => b - a);
+    
+    for(let i = 0; i < arr.length; i += m) {
+        let slice = arr.slice(i, i+m);
+        if(slice.length === m) {
+            let min = Math.min(...slice);
+            answer += min * m;
+        }
+    }
+    
+    return answer;
+}
