@@ -3,6 +3,7 @@ function solution(name, yearning, photo) {
     
     
     for(let i = 0; i < photo.length; i++) {
+        //초기값 설정
         answer[i] = 0;
         
         for(let j = 0; j < photo[i].length; j++) {
