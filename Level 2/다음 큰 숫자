@@ -1,0 +1,22 @@
+function solution(n) {
+    let answer = n;
+    
+    while(true) {
+        //조건 1, 2를 만족하는 수가 나올때까지 증가
+        answer++;
+        //n의 1의 개수와 answer의 1의 개수를 비교해서 같으면 answer 리턴
+        if(Count(n) === Count(answer)) return answer;
+    }
+}
+
+function Count(num) {
+    let ejin = num.toString(2).split('');
+    let cnt = 0;
+    
+    for(let i = 0; i < ejin.length; i++) {
+        //2진수로 변환 후 1의 개수를 카운트
+        if(ejin[i] === '1') cnt += 1;
+    }
+    
+    return cnt;
+}
