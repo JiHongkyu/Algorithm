@@ -1,0 +1,7 @@
+function solution(s) {
+    //문자열을 배열로 변환
+    let arr = s.split(" ");
+    
+    //최솟값과 최댓값을 구한 뒤 출력
+    return `${Math.min(...arr)} ${Math.max(...arr)}`;
+}
