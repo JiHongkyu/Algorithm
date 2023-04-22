@@ -1,0 +1,16 @@
+function solution(A,B){
+    //합계
+    let sum = 0;
+    
+    //문자열 A에서 가장 작은 값과 문자열 B에서 가장 큰 값을 곱하면 최솟값을 만들 수 있음.
+    //문자열 A를 오름차순으로 정렬
+    let arr1 = A.sort((a, b) => a - b);
+    //문자열 B를 내림차순으로 정렬
+    let arr2 = B.sort((a, b) => b - a);
+    
+    for(let i = 0; i < arr1.length; i++) {
+        sum += arr1[i] * arr2[i]
+    }
+    
+    return sum;
+}
