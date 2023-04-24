@@ -1,0 +1,14 @@
+function solution(citations) {
+    //논문 수
+    let i = 0;
+    //논문인용횟수
+    citations.sort((a, b) => b - a);
+    
+    //논문수가 논문인용횟수보다 커지면 H-index임.
+    while(i < citations[i]) {
+        i++;
+    }
+    
+    // H-index
+    return i;
+}
