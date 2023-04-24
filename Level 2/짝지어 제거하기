@@ -10,7 +10,6 @@ function solution(s) {
             stack.pop();
         }
     }
-    
     //stack의 길이가 0이면 1리턴 0이 아니면 0리턴
     return stack.length === 0 ? 1 : 0;
 }
