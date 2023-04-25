@@ -1,0 +1,30 @@
+function solution(s) {
+    // 2진수로 변환한 횟수와 0을 제거한 횟수
+    let answer = [0, 0];
+    // 1의 개수
+    let oneCount = 0;
+    
+    // s의 길이가 1이 될 때까지 반복
+    while (s.length > 1) {
+        for (let i = 0; i < s.length; i++) {
+            if (s[i] === "0") {
+                // 0을 제거한 횟수 증가
+                answer[1] += 1;
+            } else {
+                // 1의 개수 세기
+                oneCount += 1;
+            }
+        }
+        
+        // 2진수로 변환한 횟수 증가
+        answer[0] += 1;
+        
+        // 1의 개수를 2진수로 변환
+        s = oneCount.toString(2);
+        
+        //1의 개수 초기화
+        oneCount = 0;
+    }
+    
+    return answer;
+}
