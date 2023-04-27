@@ -41,8 +41,7 @@ function solution(n, lost, reserve) {
             }
         }
         reserve = reserve.filter(v => v !== -1);
-    }
-    
+    }   
     // 체육복이 있는 학생의 수
     return answer.length;
 }
