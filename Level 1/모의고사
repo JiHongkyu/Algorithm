@@ -1,0 +1,25 @@
+function solution(answers) {
+    // 수포자들 정답 패턴
+    let p1 = [1, 2, 3, 4, 5];
+    let p2 = [2, 1, 2, 3, 2, 4, 2, 5];
+    let p3 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5];
+    // 맞힌 갯수
+    let cnt = [0, 0, 0];
+    // 정답을 가장 많이 맞힌 사람
+    let result = [];
+    
+    for (let i = 0; i < answers.length; i++) {
+        if (answers[i] === p1[i%p1.length]) cnt[0]++;
+        if (answers[i] === p2[i%p2.length]) cnt[1]++;
+        if (answers[i] === p3[i%p3.length]) cnt[2]++;
+    }
+    
+    let max = Math.max(...cnt);
+    
+    for (let i = 0; i < cnt.length; i++) {
+        // 정답을 가장 많이 맞힌 갯수와 같으면 push
+        if (max === cnt[i]) result.push(i+1);
+    }
+    
+    return result;
+}
