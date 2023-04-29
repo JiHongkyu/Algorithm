@@ -1,0 +1,20 @@
+function solution(cards1, cards2, goal) {
+    // 초기값은 Yes로 설정
+    let answer = "Yes";
+    
+    for (let i = 0; i < goal.length; i++) {
+        // cards1 첫번째 값과 같으면 cards1 첫번째 값 삭제
+        if (cards1[0] === goal[i]) {
+            cards1.shift();
+            
+        // cards2 첫번째 값과 같으면 cards2 첫번째 값 삭제
+        } else if (cards2[0] === goal[i]) {
+            cards2.shift();
+        } else {
+            answer = "No";
+            return answer;
+        }
+    }
+    // goal과 순서 다 맞으면 Yes 리턴
+    return answer;
+}
