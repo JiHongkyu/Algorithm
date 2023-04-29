@@ -1,3 +1,9 @@
 function solution(nums) {
-    return [...new Set(nums)].length >= nums.length/2 ? nums.length/2 : [...new Set(nums)].length;
+    // 가져갈 수 있는 폰켓몬의 수
+    let num = nums.length / 2;
+    // 같은 번호를 가진 폰켓몬 제거
+    let arr = [...new Set(nums)];
+    
+    // 같은 번호를 제거한 폰켓몬의 수가 가져갈 수 있느 폰켓몬의 수보다 크면 n/2 리턴
+    return arr.length >= num ? num : arr.length;
 }
