@@ -1,3 +1,4 @@
+풀이 1.
 function solution(board, moves) {
     let bucket = [];
     let result = 0;
@@ -20,6 +21,46 @@ function solution(board, moves) {
                     break;
                 }
             }
+        }
+    }
+    
+    return result;
+}
+
+
+// 풀이 2.
+function solution(board, moves) {
+    const stack = new Array(board.length).fill(0).map(() => [])
+    let bucket = [];
+    let result = 0;
+    
+    
+    for(let i = 0; i < stack.length; i++) {
+        for(let j = board.length-1; j >= 0; j--) {
+            let doll = board[j][i];
+            
+            if(doll !== 0) stack[i].push(doll);
+        }
+    }
+    
+    for(let i = 0; i < moves.length; i++) {
+        let pick = moves[i]-1;
+        
+        if(stack[pick]) {
+            for(let j = stack[pick].length-1; j >= 0; j--) {
+                if(bucket[bucket.length-1] === stack[pick][j]) {
+                    bucket.pop();
+                    stack[pick].pop();
+                    result += 2;
+                    break;
+                } else {
+                    bucket.push(stack[pick][j]);
+                    stack[pick].pop();
+                    break;
+                }
+            } 
+        } else {
+            continue;
         }
     }
     
