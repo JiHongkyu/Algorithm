@@ -1,0 +1,33 @@
+function solution(survey, choices) {
+    let answer = '';
+    const  personality = {
+        R: 0,
+        T: 0,
+        C: 0,
+        F: 0,
+        J: 0,
+        M: 0,
+        A: 0,
+        N: 0
+    }
+    
+   for (let i = 0; i < choices.length; i++) {
+       const [first, second] = survey[i].split("");
+       // 점수가 3, 2, 1, 0, 1, 2, 3 순으로 진행되기 때문에 Math.abs(choices[i] - 4)를 해주어서 절대값으로 구하기
+       const value = Math.abs(choices[i] - 4)
+       // choices[i]번째 값이 4보다 작다면 앞 유형에 더해주기
+        if (choices[i] < 4) {
+            personality[first] += value;
+            // choices[i]번째 값이 4보다 크다면 뒷 유형에 더해주기
+        } else if (choices[i] > 4) {
+            personality[second] += value
+        }
+   }
+    
+    const keys = Object.keys(personality);
+    for (let i = 0; i < keys.length; i += 2) {
+        if (personality[keys[i]] >= personality[keys[i+1]]) answer += keys[i];
+        else answer += keys[i+1]
+    }
+    console.log(personality)
+    return answer;
