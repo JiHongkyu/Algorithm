@@ -31,9 +31,8 @@ function solution(board, moves) {
 // 풀이 2.
 function solution(board, moves) {
     const stack = new Array(board.length).fill(0).map(() => [])
-    let bucket = [];
+    const bucket = [];
     let result = 0;
-    
     
     for(let i = 0; i < stack.length; i++) {
         for(let j = board.length-1; j >= 0; j--) {
@@ -46,19 +45,14 @@ function solution(board, moves) {
     for(let i = 0; i < moves.length; i++) {
         let pick = moves[i]-1;
         
-        if(stack[pick]) {
-            for(let j = stack[pick].length-1; j >= 0; j--) {
-                if(bucket[bucket.length-1] === stack[pick][j]) {
+        if(stack[pick].length !== 0) {
+           const pick_top_doll = stack[pick].pop();
+          
+                if(bucket[bucket.length-1] === pick_top_doll) {
                     bucket.pop();
-                    stack[pick].pop();
                     result += 2;
-                    break;
-                } else {
-                    bucket.push(stack[pick][j]);
-                    stack[pick].pop();
-                    break;
-                }
-            } 
+                } else bucket.push(pick_top_doll);
+             
         } else {
             continue;
         }
