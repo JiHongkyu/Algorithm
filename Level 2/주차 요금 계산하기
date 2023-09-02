@@ -12,10 +12,10 @@ function solution(fees, records) {
         time = 60 * Number(hours) + Number(minutes);
         
         if (inout === "IN") {
-            if (car[`${carNumber}`]) car[`${carNumber}`] =  car[`${carNumber}`] + time;
+            if (car[`${carNumber}`]) car[`${carNumber}`] =  time - car[`${carNumber}`];
             else car[`${carNumber}`] = time
         } else if (inout === "OUT")
-            car[`${carNumber}`] =  car[`${carNumber}`] - time; 
+            car[`${carNumber}`] = time - car[`${carNumber}`] ; 
     }
     
     for (let [carNumber, inout] of Object.entries(carsInout)) {
@@ -25,10 +25,8 @@ function solution(fees, records) {
     
     
     for (let [carNumber, time] of Object.entries(car)) {
-        time = Math.abs(time)
         if (time > basicTime) {
-            time = time - basicTime;
-            time = Math.ceil(time / min) * fee + basicFee;
+            time = Math.ceil((time - basicTime) / min) * fee + basicFee;
         } else time = basicFee;
         
         answer.push([carNumber, time]);
