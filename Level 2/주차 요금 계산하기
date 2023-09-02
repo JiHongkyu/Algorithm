@@ -1,0 +1,50 @@
+function solution(fees, records) {
+    const answer = [];
+    const car = {};
+    const carsInout = {};
+    const [basicTime, basicFee, min, fee] = fees;
+    
+    for (let i = 0; i < records.length; i++) {
+        let [time, carNumber, inout] = records[i].split(" ");
+        const [hours, minutes] = time.split(':');
+        carsInout[`${carNumber}`] = inout;
+        
+        time = 60 * Number(hours) + Number(minutes);
+        
+        if (inout === "IN") {
+            if (car[`${carNumber}`]) car[`${carNumber}`] =  car[`${carNumber}`] + time;
+            else car[`${carNumber}`] = time
+        } else if (inout === "OUT")
+            car[`${carNumber}`] =  car[`${carNumber}`] - time; 
+    }
+    
+    for (let [carNumber, inout] of Object.entries(carsInout)) {
+        if (inout === "IN") car[`${carNumber}`] = 1439 - car[`${carNumber}`];
+    }
+
+    
+    
+    for (let [carNumber, time] of Object.entries(car)) {
+        time = Math.abs(time)
+        if (time > basicTime) {
+            time = time - basicTime;
+            time = Math.ceil(time / min) * fee + basicFee;
+        } else time = basicFee;
+        
+        answer.push([carNumber, time]);
+    }
+    
+    
+    return answer.sort((a, b) => a[0] - b[0]).map(car => car[1]);
+    
+}
+
+
+
+
+// 입차, 출차 기록을 통해 차량별 주차 요금을 계산해라
+
+// 주의 사항
+// 입차기록만 있고 출차기록이 없다면 23:59에 출차한것으로 간주
+// 기본 시간 이하라면, 기본요금 적용
+// 초과한 시간이 단위 시간 단위로 떨어지지 않으면 올림 처리
