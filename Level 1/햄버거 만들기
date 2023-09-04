@@ -17,3 +17,6 @@ function solution(ingredient) {
     
     return answer;
 }
+
+// 햄버거를 만들 때 빵-야채-고기-빵 순으로 쌓인 햄버거만 포장할 수 있다.
+// 상수가 포장할 수 있는 햄버거의 개수를 구하라
