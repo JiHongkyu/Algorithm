@@ -1,0 +1,41 @@
+function solution(str1, str2) {
+    let answer = 0;
+    str1 = str1.toUpperCase();
+    str2 = str2.toUpperCase();
+    const arr1 = new Array();
+    const arr2 = new Array();
+    const intersection = [];
+      
+    createArray(str1, arr1)
+    createArray(str2, arr2)
+    
+    // arr2 = [ 'FR', 'RE', 'EN', 'NC', 'CH' ]
+    // 교집합 구하기
+    for (let i = 0; i < arr1.length; i++) {
+        const index = arr2.indexOf(arr1[i]);
+        
+        if (index > -1) {
+            intersection.push(arr2.splice(index, 1));
+        }
+
+    }
+    // arr2 = [ 'RE', 'EN', 'CH' ]
+    
+    // 합집합 구하기
+    const union = arr1.concat(arr2)
+    
+    // 공집합이면 65536 리턴
+    if (intersection.length === 0 && union.length === 0) answer = 65536;
+    else answer = parseInt(65536 * (intersection.length / union.length))
+    return answer;
+    
+}
+
+// 배열 생성 함수
+function createArray(str, arr) {
+    for (let i = 0; i < str.length-1; i++) {
+        const substr = str.substr(i, 2);
+        
+        if ((substr[0] >= 'A' && substr[0] <= 'Z') && (substr[1] >= 'A' && substr[1] <= 'Z')) arr.push(substr);
+    }
+}
