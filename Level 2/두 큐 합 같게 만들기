@@ -1,0 +1,25 @@
+function solution(queue1, queue2) {
+    let sum1 = queue1.reduce((acc, cur) => acc + cur, 0);
+    let sum2 = queue2.reduce((acc, cur) => acc + cur, 0);
+    const middle = (sum1 + sum2) / 2;
+    const concatArr = queue1.concat(queue2);
+    let left = 0;
+    let right = queue1.length;
+    let cnt = 0;
+    
+    while (cnt < concatArr.length * 4) {
+        if (sum1 > middle) {
+            sum1 -= concatArr[left]; 
+            if (left < concatArr.length - 1) left++;
+            else left = 0;
+        } else if (sum1 < middle) {
+            sum1 += concatArr[right];
+            if (right < concatArr.length - 1) right++;
+            else right = 0
+        } else return cnt;
+        
+        cnt++;
+    }
+    
+    return -1
+}
